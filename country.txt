@@ -1,0 +1,14 @@
+#country.py
+import jieba
+import wordcloud
+txt = open("关于实施乡村振兴战略的意见.txt","r",encoding = "utf-8").read()
+ls = jieba.lcut(txt)
+t = " ".join(ls)
+w = wordcloud.WordCloud(font_path = "msyh",\
+                        width =1000,height =800,background_color = "white",\
+    )
+w.generate(t)
+w.to_file("enhcountry.png")
+
+    
+    

@@ -1,0 +1,11 @@
+#govreport.py
+import jieba
+import wordcloud
+txt = open("新时代中国特色社会主义.txt","r",encoding = "utf-8").read()
+ls = jieba.lcut(txt)
+t = " ".join(ls)
+w = wordcloud.WordCloud( font_path = "msyh",\
+    width =1000,height =800,background_color = "white"\
+    )
+w.generate(t)
+w.to_file("gvwordcloud.png")

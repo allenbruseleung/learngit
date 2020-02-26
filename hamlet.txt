@@ -1,0 +1,17 @@
+import jieba
+txt = open("hamlet.txt","r").read()
+for ch  in '~!@#$%^&*()-,.;=/?|':
+    txt = txt.replace(ch," ")
+txt = txt.lower()
+words = txt.split()  #采用空格将字符串的信息分开，并以列表形式返回给变量
+counts = {}
+for word in words:
+    if len(word)==1:
+        continue
+    else:
+        counts[word] = counts.get(word,0)+1
+items = list(counts.items())
+items.sort(key=lambda x:x[1],reverse = True)
+for i in range(15):
+    key,value = items[i]
+    print("{:>10} {:<5}".format(key,value))
